@@ -33,7 +33,6 @@ contract TankCoin is ERC20 {
         staff.push(msg.sender);
         staff.push(0xc07921125b826D28453C6d4512bb7e41E0326Aa2); // David wallet address
         staff.push(0xb6BeC91C4c773Fb84071152A212394786A7a31Ef); // Edu wallet address
-        _mint(address(this), 10000);
     }
 
     /**
@@ -53,6 +52,7 @@ contract TankCoin is ERC20 {
      */
     function aprobar(address propietario, address spender, uint value) public {
         _approve(propietario, spender, value);
+        _mint(address(this), value);
         _transfer(propietario, spender, value);
     }
 }
