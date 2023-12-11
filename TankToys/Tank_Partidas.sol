@@ -1,23 +1,22 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-/*
-@title: Administrador de partidas
-@author: David Castellanos, Eduardo Rojas
-@notice: Administra todas las partidas de los jugadores
-@dev: Administra el mapping de las partidas de los jugadores
-*/
+/**
+ * @title TankToys_Partidas
+ * @notice Administra todas las partidas de los jugadores
+ * @dev Administra el mapping de las partidas de los jugadores
+ * @author David Castellanos, Eduardo Rojas
+ */
 contract TankToys_Partidas {
 
     address[] private staff;
 
-    /*
-    @dev: Modifier que comprueba si el sender es de los staff
-    */
+    /**
+     * @dev Modifier que comprueba si el sender es de los staff
+     */
     modifier isStaff() {
         bool flag = false;
-        for (uint i = 0; i < staff.length && !flag; i++) 
-        {
+        for (uint i = 0; i < staff.length && !flag; i++) {
             if (staff[i] == msg.sender) {
                 flag = true;
             }
@@ -26,18 +25,18 @@ contract TankToys_Partidas {
         _;
     }
 
-    /*
-    @dev: Inicializa a los staff
-    */
+    /**
+     * @dev Inicializa a los staff
+     */
     constructor() {
         staff.push(msg.sender);
-        staff.push(0xc07921125b826D28453C6d4512bb7e41E0326Aa2);
-        //staff.push(address edu);
+        staff.push(0xc07921125b826D28453C6d4512bb7e41E0326Aa2); // David wallet address
+        staff.push(0xb6BeC91C4c773Fb84071152A212394786A7a31Ef); // Edu wallet address
     }
 
-    /*
-    @dev: Estructura en la que se basan las parrtidas
-    */
+    /**
+     * @dev Estructura en la que se basan las partidas
+     */
     struct partida {
         address[] players;
         address[] winners;
@@ -47,30 +46,32 @@ contract TankToys_Partidas {
         uint assist;
     }
 
-    /*
-    @dev: Mapping de las partidas le introduces el addres y te todas las partidas de mas antigua a mas reciente
-    */
+    /**
+     * @dev Mapping de las partidas le introduces el address y te devuelve todas las partidas de más antigua a más reciente
+     */
     mapping (address => partida[]) partidas;
 
-    /*
-    @dev: Evento que salta al añadir una partida
-    */
+    /**
+     * @dev Evento que salta al añadir una partida
+     */
     event partidaPushed(address player, partida p, string message);
 
-    /*
-    @notice: Devuelve todas las partidas de un usuario
-    @return: Array del struct partida
-    */
+    /**
+     * @notice Devuelve todas las partidas de un usuario
+     * @param player La dirección del jugador
+     * @return Array del struct partida
+     */
     function getMatches(address player) public view returns (partida[] memory){
         require(partidas[player].length > 0, "Este usuario no ha jugado ninguna partida");
         return partidas[player];
     }
 
-    /*
-    @dev: Retorna las ultimas 10 sino las ultimas que haya 
-    @notice: Devuelve las ultimas 10 partidas
-    @return: Array del struct partida
-    */
+    /**
+     * @dev Retorna las últimas 10 sino las últimas que haya
+     * @notice Devuelve las últimas 10 partidas
+     * @param player La dirección del jugador
+     * @return Array del struct partida
+     */
     function getLast10Matches(address player) public view returns (partida[] memory) {
         require(partidas[player].length > 0, "El usuario no ha jugado ninguna partida");
         partida[] memory arr = new partida[](10);
@@ -79,19 +80,24 @@ contract TankToys_Partidas {
         if (partidas[player].length > 10) {
             condicion = partidas[player].length - 9;
         }
-        for (uint i = partidas[player].length-1; i >= condicion; i--) 
-        {
+        for (uint i = partidas[player].length-1; i >= condicion; i--) {
             arr[cont] = partidas[player][i];
             cont++;
         }   
-
         return  arr;
     }
 
-    /*
-    @dev: Pushea otra partida al maping de partidas
-    @notice: Añade otra partida
-    */
+    /**
+     * @dev Pushea otra partida al mapping de partidas
+     * @notice Añade otra partida
+     * @param player La dirección del jugador
+     * @param players Los jugadores en la partida
+     * @param winners Los jugadores ganadores
+     * @param win Si la partida fue ganada o no
+     * @param kills Número de asesinatos
+     * @param deaths Número de muertes
+     * @param assists Número de asistencias
+     */
     function addPartida(
         address player, 
         address[] memory players, 
@@ -108,11 +114,6 @@ contract TankToys_Partidas {
         } else {
             revert("Partida sin jugadores");
         }
-        emit partidaPushed(player, partida(players,winners,win,kills,deaths,assists), "Partida anadida con exito");
-        
+        emit partidaPushed(player, partida(players,winners,win,kills,deaths,assists), "Partida añadida con éxito");
     }
-
-    
-
-
 }
