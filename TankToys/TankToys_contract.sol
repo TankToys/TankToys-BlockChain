@@ -94,7 +94,7 @@ contract TankToys {
     ) 
         public isStaff
     {
-        this.paySomething(direction, nCoins);
+        this.contractPaySomething(direction, nCoins);
         usuarios.updateLastMatch(direction, players, winners, win, kills, deaths, assist);
         partidas.addPartida(direction, players, winners, win, kills, deaths, assist);
         emit rewardsClaimed(direction, nCoins, "Recompensas de la partida transferida");
@@ -104,10 +104,19 @@ contract TankToys {
     @dev: Approve y transferfrom
     @inherit: Utiliza funciones de TKC_ERC20
     */
-    function paySomething(address player, uint nCoins) external isStaff payable {
+    function userPaySomething(address player, uint nCoins) external isStaff {
         require(nCoins > 0, "No has pagado nada");
-        tkc.aprobar(staff[0], player, nCoins);
-        tkc.transferFrom(player, staff[0], nCoins);
+        tkc.aprobar(player, address(tkc), nCoins);
     }
+
+    /*
+    @dev: Approve y transferfrom
+    @inherit: Utiliza funciones de TKC_ERC20
+    */
+    function contractPaySomething(address player, uint nCoins) external isStaff {
+        require(nCoins > 0, "No has pagado nada");
+        tkc.aprobar(address(tkc), player, nCoins);
+    }
+    
 
 }

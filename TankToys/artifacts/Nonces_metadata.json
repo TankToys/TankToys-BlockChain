@@ -1,0 +1,92 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "currentNonce",
+						"type": "uint256"
+					}
+				],
+				"name": "InvalidAccountNonce",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Provides tracking nonces for addresses. Nonces will only increment.",
+			"errors": {
+				"InvalidAccountNonce(address,uint256)": [
+					{
+						"details": "The nonce used for an `account` is not the expected current nonce."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"nonces(address)": {
+					"details": "Returns the next unused nonce for an address."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TankToys/TKC_ERC20_flattened.sol": "Nonces"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"TankToys/TKC_ERC20_flattened.sol": {
+			"keccak256": "0xb8a19a283f39d15017e7dcfeff933238fc1f2aaca7b57521577dfeddb2512042",
+			"urls": [
+				"bzz-raw://7bd35f99ac686b3cbfb93b52d389edbd54dee1a455d471ba07d963fc60a71a68",
+				"dweb:/ipfs/QmdjUgQXUF3tPR8KcjBvYPQEXd5qHpain5esaxnwKnJ7qc"
+			]
+		}
+	},
+	"version": 1
+}

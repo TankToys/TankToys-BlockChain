@@ -227,11 +227,11 @@
 	},
 	"sources": {
 		"TankToys/Tank_Players.sol": {
-			"keccak256": "0x025b7911144bca2d59f33fd513bb35b680b38bca46d9ff7065480f9ff5bc0211",
+			"keccak256": "0x907cd2e8169f7e6016a592775b7211f4669de6318354d28f138639fe0bb55def",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://60aaf57cc68e6090351af558a59eca801965683ca6dfc82be437c61d3cf62425",
-				"dweb:/ipfs/QmZ7b3HFCRRx3ZtXuwo5zR1JYEkwq4NWWgMvdMixQSGkxZ"
+				"bzz-raw://7105d4a33919b57a19b16303dde4101de801b7a5f924759385225198796601b5",
+				"dweb:/ipfs/QmfGRGjJzoFGZRUZPJ7qtsrnMVFiaRphgLktQKhbW76bor"
 			]
 		}
 	},

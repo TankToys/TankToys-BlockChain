@@ -27,6 +27,21 @@ contract TankToys_Players {
     }
 
     /*
+    @dev: Modifier que comprueba si ya tiene esa address como amigo
+    */
+    modifier includeFriend(address player, address newfriend) {
+        bool flag = false;
+        for (uint i = 0; i < usuarios[player].friends.length && !flag; i++) 
+        {
+            if (newfriend == usuarios[player].friends[i]) {
+                flag = true;
+            }
+        }
+        require(!flag, "Sorry staff only");
+        _;
+    }
+
+    /*
     @dev: Inicializa a los staff
     */
     constructor() {
@@ -40,7 +55,7 @@ contract TankToys_Players {
     */
     struct user {
         address[] friends;
-        // address direction;
+        bool created;
         partida ultima;
     }
 
@@ -89,9 +104,12 @@ contract TankToys_Players {
     @dev: Pushea una address al array del mapping de usuarios
     @notice: Añade un amigo a una address
     */
-    function addFriend(address player, address newfriend) public isStaff {
+    function addFriend(address player, address newfriend) public isStaff includeFriend(player, newfriend) {
+        require(usuarios[player].created, "No puedes anadir amigos si no eres usuario");
+        require(usuarios[newfriend].created);
         require(newfriend != player, "No te puedes anadir a ti mismo como amigo");
-        require(abi.encodePacked(newfriend).length > 0, "Addres de amigo no valida");
+        require(abi.encodePacked(newfriend).length == 20, "Addres de amigo no valida");
+        
         usuarios[player].friends.push(newfriend);
         emit friendPushed(player, newfriend, "Amigo anadido con exito");
     }
@@ -103,7 +121,7 @@ contract TankToys_Players {
     function addPlayer(address player) public isStaff {
         require(abi.encodePacked(player).length > 0, "Addres del jugador no valida");
         address[] memory players;
-        usuarios[player] = user(players ,partida(players,players,false,0,0,0));
+        usuarios[player] = user(players, true, partida(players,players,false,0,0,0));
         emit newPlayer(player, "Jugador anadido con exito");
     }
 
