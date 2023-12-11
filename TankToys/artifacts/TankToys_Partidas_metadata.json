@@ -1,0 +1,253 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "players",
+								"type": "address[]"
+							},
+							{
+								"internalType": "address[]",
+								"name": "winners",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "win",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "kills",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deaths",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assist",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct TankToys_Partidas.partida",
+						"name": "p",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "partidaPushed",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "players",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "winners",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "win",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "kills",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deaths",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "assists",
+						"type": "uint256"
+					}
+				],
+				"name": "addPartida",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "getLast10Matches",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "players",
+								"type": "address[]"
+							},
+							{
+								"internalType": "address[]",
+								"name": "winners",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "win",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "kills",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deaths",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assist",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TankToys_Partidas.partida[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "getMatches",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "players",
+								"type": "address[]"
+							},
+							{
+								"internalType": "address[]",
+								"name": "winners",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "win",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "kills",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deaths",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assist",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TankToys_Partidas.partida[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TankToys/Tank_Partidas.sol": "TankToys_Partidas"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"TankToys/Tank_Partidas.sol": {
+			"keccak256": "0x67aa89aee9b76c80330a844f23af2cb56db5d45866ac47559201c6f572d74241",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2dfea4abbbc937e467bd554093e1215cf86883f0bfd1304a3d43da3dd2ef9448",
+				"dweb:/ipfs/QmRTQfAmaPTP7umsfaVdQLEnXCWzsAgJrkqnuQUUVM6Mfe"
+			]
+		}
+	},
+	"version": 1
+}

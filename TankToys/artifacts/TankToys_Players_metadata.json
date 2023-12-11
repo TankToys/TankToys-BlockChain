@@ -1,0 +1,239 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "friend",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "friendPushed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "newPlayer",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "newfriend",
+						"type": "address"
+					}
+				],
+				"name": "addFriend",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "addPlayer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "getFriends",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "friends",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "getLastMathch",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "players",
+								"type": "address[]"
+							},
+							{
+								"internalType": "address[]",
+								"name": "winners",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bool",
+								"name": "win",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint256",
+								"name": "kills",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "deaths",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assist",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct TankToys_Players.partida",
+						"name": "p",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"internalType": "address[]",
+						"name": "players",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "winners",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "win",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "kills",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deaths",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "assist",
+						"type": "uint256"
+					}
+				],
+				"name": "updateLastMatch",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TankToys/Tank_Players.sol": "TankToys_Players"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"TankToys/Tank_Players.sol": {
+			"keccak256": "0x025b7911144bca2d59f33fd513bb35b680b38bca46d9ff7065480f9ff5bc0211",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://60aaf57cc68e6090351af558a59eca801965683ca6dfc82be437c61d3cf62425",
+				"dweb:/ipfs/QmZ7b3HFCRRx3ZtXuwo5zR1JYEkwq4NWWgMvdMixQSGkxZ"
+			]
+		}
+	},
+	"version": 1
+}
